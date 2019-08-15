@@ -2,6 +2,7 @@ package com.product.controller;
 
 import com.product.entity.ProductEntity;
 import com.product.mapper.ProductMapper;
+import com.product.service.ProductService;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,13 +20,13 @@ import org.springframework.web.bind.annotation.RestController;
 public class ProductController {
 
   @Autowired
-  private ProductMapper productMapper;
+  private ProductService productService;
 
   @ApiOperation(value = "Get Product By Id", notes = "Id must be number.")
   @ApiImplicitParam(name = "id", value = "Product Id", required = true, dataType = "Long")
   @GetMapping("/{id}")
   public ProductEntity getProduct(@PathVariable("id") final Long id) {
-     return productMapper.getOne(id);
+     return productService.getProductById(id);
   }
 
 }
