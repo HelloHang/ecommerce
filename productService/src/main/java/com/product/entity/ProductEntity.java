@@ -16,6 +16,11 @@ public class ProductEntity {
     this.productType = productType;
   }
 
+  public ProductEntity()
+  {
+
+  }
+
   public String getProductType() {
     return productType;
   }

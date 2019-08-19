@@ -31,7 +31,6 @@
 
         <resources>
             <heap unit="entries">1000</heap>
-            <offheap unit="MB">10</offheap>
         </resources>
     </cache>
 

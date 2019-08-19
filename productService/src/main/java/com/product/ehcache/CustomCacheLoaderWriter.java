@@ -1,5 +1,6 @@
 package com.product.ehcache;
 
+import com.product.entity.ProductEntity;
 import org.ehcache.spi.loaderwriter.BulkCacheLoadingException;
 import org.ehcache.spi.loaderwriter.BulkCacheWritingException;
 import org.ehcache.spi.loaderwriter.CacheLoaderWriter;
@@ -35,7 +36,11 @@ public class CustomCacheLoaderWriter implements CacheLoaderWriter
 	public Object load(Object o) throws Exception
 	{
 		LOG.info("Get data form custom cache.");
-		return null;
+		ProductEntity productEntity = new ProductEntity();
+		productEntity.setId(2L);
+		productEntity.setName("demo");
+		productEntity.setDescription("la la la");
+		return productEntity;
 	}
 
 	@Override
