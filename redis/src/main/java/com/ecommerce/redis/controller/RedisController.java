@@ -16,12 +16,12 @@ public class RedisController {
   @Autowired
   private RedisService redisService;
 
-  @ApiOperation(value = "Put value to redis")
+  @ApiOperation(value = "Add value to redis")
   @ApiImplicitParams({
       @ApiImplicitParam(name = "key", value = "Key", required = true, dataType = "String")
   })
-  @PutMapping
-  public void putValueToRedis(@RequestParam(value = "key") String key,
+  @PostMapping
+  public void addValueToRedis(@RequestParam(value = "key") String key,
       @RequestBody @ApiParam(name = "value", value = "Value", required = true) String value) {
     redisService.put(key, value);
   }

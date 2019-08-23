@@ -48,10 +48,10 @@ public class CustomCacheLoaderWriter implements CacheLoaderWriter
 	@Override
 	public Object load(Object key) throws Exception
 	{
-		LOG.info("Get data form custom cache.");
 		String value = restTemplate.getForObject("http://localhost:8002/redis?key={?}", String.class, key);
 		if (value != null && !EMPTY_OBJECT.equals(value))
 		{
+			LOG.info("Get data form custom cache.");
 			return objectMapper.readValue(value, ProductEntity.class);
 		}
 		return null;
@@ -68,7 +68,7 @@ public class CustomCacheLoaderWriter implements CacheLoaderWriter
 			HttpHeaders httpHeaders = new HttpHeaders();
 			httpHeaders.setContentType(MediaType.APPLICATION_JSON_UTF8);
 			HttpEntity<String> httpEntity = new HttpEntity<>(json, httpHeaders);
-			restTemplate.put("http://localhost:8002/redis?key={?}", httpEntity, key);
+			restTemplate.postForLocation("http://localhost:8002/redis?key={?}", httpEntity, key);
 			LOG.info("Writer data to custom cache successfully.");
 		}
 	}
@@ -76,7 +76,7 @@ public class CustomCacheLoaderWriter implements CacheLoaderWriter
 	@Override
 	public void delete(Object key) throws Exception
 	{
-		restTemplate.delete("http://local:host:8002/redis?Key={?}", key);
+		restTemplate.delete("http://localhost:8002/redis?key={?}", key);
 		LOG.info("delete data form redis successful.");
 	}
 }
