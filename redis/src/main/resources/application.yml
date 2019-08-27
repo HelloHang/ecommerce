@@ -1,0 +1,23 @@
+server:
+  port: 8002
+spring:
+  application:
+    name: redisService
+  redis:
+    host: localhost
+    password:
+    timeout: 10000
+    database: 0
+    lettuce:
+      pool:
+        max-active: 8
+        max-wait: -1
+        max-idle: 8
+        min-idle: 0
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://localhost:8003/eureka}
+  instance:
+    preferIpAddress: true

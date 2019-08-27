@@ -16,11 +16,13 @@
 
     <properties>
         <java.version>1.8</java.version>
+        <spring-cloud.version>2.1.7.RELEASE</spring-cloud.version>
     </properties>
 
     <modules>
         <module>redis</module>
         <module>productService</module>
+        <module>registerCenter</module>
     </modules>
 
     <dependencies>
