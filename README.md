@@ -2,13 +2,12 @@
 创建产品服务</br>
 创建Redis缓存服务</br>
 使用Ehcache + Redis实现二级缓存功能</br>
-
+使用Spring Cloud来整合这几个服务</br>
 
 
 
 --计划要做的---</br>
 
-使用Spring Cloud来整合这几个服务</br>
 增加认证鉴权服务(Oauth2 + JWT)</br>
 给Product Service添加创建Cart,以及生成订单的接口</br>
 创建MQ服务</br>
