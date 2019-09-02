@@ -8,12 +8,14 @@
 
 --计划要做的---</br>
 
-增加认证鉴权服务(Oauth2 + JWT)</br>
+增加认证鉴权服务(Zuul + Oauth2 + JWT)</br>
+增加服务配置中心(Spring cloud Bus)
 给Product Service添加创建Cart,以及生成订单的接口</br>
-创建MQ服务</br>
+创建MQ服务(Kafka + spring cloud stream)</br>
 发送订单到MQ</br>
 创建发送Email服务</br>
 通过Email服务来消费MQ中得Order</br>
+Spring hystrix
 
 
 
