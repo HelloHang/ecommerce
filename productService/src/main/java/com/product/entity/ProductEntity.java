@@ -9,6 +9,7 @@ public class ProductEntity {
   private String name;
   private String description;
   private String productType;
+  private Double price;
 
   public ProductEntity(String name, String description, String productType) {
     this.name = name;
@@ -51,5 +52,15 @@ public class ProductEntity {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public Double getPrice()
+  {
+    return price;
+  }
+
+  public void setPrice(Double price)
+  {
+    this.price = price;
   }
 }

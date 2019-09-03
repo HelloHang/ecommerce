@@ -23,6 +23,7 @@
         <module>redis</module>
         <module>productService</module>
         <module>registerCenter</module>
+        <module>auth-server</module>
     </modules>
 
     <dependencies>
