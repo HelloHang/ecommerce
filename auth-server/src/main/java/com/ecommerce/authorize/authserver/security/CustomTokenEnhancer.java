@@ -19,11 +19,10 @@ public class CustomTokenEnhancer extends JwtAccessTokenConverter implements Seri
 	@Override
 	public OAuth2AccessToken enhance(OAuth2AccessToken accessToken, OAuth2Authentication authentication)
 	{
-		CustomUserDetails customUserDetails = (CustomUserDetails) authentication.getPrincipal();
+		CustomUserDetails customUserDetails = (CustomUserDetails) authentication.getUserAuthentication().getCredentials();
 		authentication.getUserAuthentication().getPrincipal();
 		Map<String, Object> info = new HashMap<>();
 		info.put(TOKEN_USER_ID, customUserDetails.getUserId());
-
 		DefaultOAuth2AccessToken auth2AccessToken = new DefaultOAuth2AccessToken(accessToken);
 		auth2AccessToken.setAdditionalInformation(info);
 

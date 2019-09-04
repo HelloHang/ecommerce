@@ -1,6 +1,6 @@
 package com.ecommerce.authorize.authserver.handler;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,9 +29,8 @@ public class CustomeLogoutHandler implements LogoutHandler
 
 		if (isJwtBearerToken(token))
 		{
-			token = token.substring(6);
+			token = StringUtils.trim(token.substring(6));
 			OAuth2AccessToken existingAccessToken = tokenStore.readAccessToken(token);
-			OAuth2RefreshToken refreshToken;
 			if (existingAccessToken != null)
 			{
 				if (existingAccessToken.getRefreshToken() != null)
