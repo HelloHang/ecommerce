@@ -1,6 +1,5 @@
 package com.ecommerce.authorize.authserver.config;
 
-import com.ecommerce.authorize.authserver.security.CustomAuthorizationTokenServices;
 import com.ecommerce.authorize.authserver.security.CustomTokenEnhancer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -15,8 +14,6 @@ import org.springframework.security.oauth2.config.annotation.web.configurers.Aut
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
 import org.springframework.security.oauth2.provider.client.JdbcClientDetailsService;
 import org.springframework.security.oauth2.provider.error.WebResponseExceptionTranslator;
-import org.springframework.security.oauth2.provider.token.AuthorizationServerTokenServices;
-import org.springframework.security.oauth2.provider.token.store.JdbcTokenStore;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
 import org.springframework.security.oauth2.provider.token.store.redis.RedisTokenStore;
 
@@ -51,7 +48,7 @@ public class Auth2Config extends AuthorizationServerConfigurerAdapter
 	@Override
 	public void configure(AuthorizationServerSecurityConfigurer security) throws Exception
 	{
-		security.tokenKeyAccess("permitAll()").checkTokenAccess("isAuthenticated()");
+		security.allowFormAuthenticationForClients();
 	}
 
 	@Override
@@ -60,10 +57,10 @@ public class Auth2Config extends AuthorizationServerConfigurerAdapter
 		//方式1.使用JDBC从数据库中查找client信息
 		clients.withClientDetails(jdbcClientDetailsService());
 
-		//方式2. 同时向数据库中写入client信息
-		//		clients.jdbc(dataSource).withClient("sampleClientId").authorizedGrantTypes("implicit").scopes("read").autoApprove(true)
-		//			  .and().withClient("clientIdPassword").secret("secret")
-		//			  .authorizedGrantTypes("password", "authorization_code", "refresh_token").scopes("read");
+		//		方式2. 同时向数据库中写入client信息
+//		clients.jdbc(dataSource).withClient("client1").authorizedGrantTypes("client_credentials", "refresh_token").scopes("read")
+//			  .secret("secret1").and().withClient("clientIdPassword").secret("secret")
+//			  .authorizedGrantTypes("password", "authorization_code", "refresh_token").scopes("read");
 
 		//方式3：使用内存存储
 		//		clients.inMemory().withClient();
