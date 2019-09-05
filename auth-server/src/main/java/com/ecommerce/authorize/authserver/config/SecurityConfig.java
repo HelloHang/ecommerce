@@ -28,6 +28,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
 	@Override
 	protected void configure(HttpSecurity http) throws Exception
 	{
+		//TODO : LogoutHandler需要重写
 		http.csrf().disable().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and().requestMatchers()
 			  .antMatchers("/**").and().authorizeRequests().antMatchers("/**").permitAll().anyRequest().authenticated().and()
 			  .logout().logoutUrl("/logout").clearAuthentication(true)
