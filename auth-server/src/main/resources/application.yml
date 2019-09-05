@@ -5,9 +5,6 @@ spring:
     username: root
     password: 1234
     type: com.zaxxer.hikari.HikariDataSource
-  cache:
-    jcache:
-      config: classpath:ehcache.xml
   application:
     name: auth-service
 

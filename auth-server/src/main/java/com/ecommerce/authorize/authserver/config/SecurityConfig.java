@@ -11,6 +11,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.logout.HttpStatusReturningLogoutSuccessHandler;
@@ -42,7 +43,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception
 	{
-		auth.authenticationProvider(customAuthenticationProvider);
+		//方式1：自定义认证流程
+//		auth.authenticationProvider(customAuthenticationProvider);
+
+//		方式2：
+		auth.inMemoryAuthentication()
+			  .withUser("john").password("123").roles("USER");
 	}
 
 	@Override
@@ -52,6 +58,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
 		return super.authenticationManagerBean();
 	}
 
+	@Override
+	@Bean
+	public UserDetailsService userDetailsServiceBean() throws Exception
+	{
+		return super.userDetailsServiceBean();
+	}
 
 	@Bean
 	public PasswordEncoder passwordEncoder()
