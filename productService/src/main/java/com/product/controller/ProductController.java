@@ -7,6 +7,7 @@ import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -23,6 +24,7 @@ public class ProductController
 
 	@ApiOperation(value = "Get Product By Id", notes = "Id must be number.")
 	@ApiImplicitParam(name = "id", value = "Product Id", required = true, dataType = "Long")
+	@PreAuthorize("hasRole('USER')")
 	@GetMapping("/{id}")
 	public ProductEntity getProduct(@PathVariable("id") final Long id)
 	{

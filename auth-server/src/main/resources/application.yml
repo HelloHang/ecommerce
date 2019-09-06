@@ -19,7 +19,7 @@ spring:
         max-idle: 8
         min-idle: 0
 server:
-  port: 8051
+  port: 8052
 
 logging:
   level:
