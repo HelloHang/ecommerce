@@ -7,7 +7,7 @@ public abstract class AbstractOrderEntity
 {
 	private Long id;
 
-	private List<OrderEntity> entities;
+	private List<OrderEntryEntity> entries;
 
 	private Double totalPrice;
 
@@ -21,16 +21,6 @@ public abstract class AbstractOrderEntity
 		this.id = id;
 	}
 
-	public List<OrderEntity> getEntities()
-	{
-		return entities;
-	}
-
-	public void setEntities(List<OrderEntity> entities)
-	{
-		this.entities = entities;
-	}
-
 	public Double getTotalPrice()
 	{
 		return totalPrice;
@@ -39,5 +29,15 @@ public abstract class AbstractOrderEntity
 	public void setTotalPrice(Double totalPrice)
 	{
 		this.totalPrice = totalPrice;
+	}
+
+	public List<OrderEntryEntity> getEntries()
+	{
+		return entries;
+	}
+
+	public void setEntries(List<OrderEntryEntity> entries)
+	{
+		this.entries = entries;
 	}
 }

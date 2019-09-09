@@ -3,10 +3,11 @@
 创建Redis缓存服务</br>
 使用Ehcache + Redis实现二级缓存功能</br>
 使用Spring Cloud来整合这几个服务</br>
-
+增加认证鉴权服务（Spring Security + Oauth2）</br>
 
 --计划要做的---</br>
 
+增加网关服务（GetWay）
 增加认证鉴权服务(Zuul + Oauth2 + JWT)</br>
 增加服务配置中心(Spring cloud Bus)
 给Product Service添加创建Cart,以及生成订单的接口</br>
