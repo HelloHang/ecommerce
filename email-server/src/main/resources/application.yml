@@ -1,0 +1,15 @@
+server:
+  port: 8011
+
+spring:
+  mail:
+    host: smtp.gmail.com
+    port: 25
+    username: test
+    password: test
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true

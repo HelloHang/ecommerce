@@ -24,6 +24,7 @@
         <module>productService</module>
         <module>registerCenter</module>
         <module>auth-server</module>
+        <module>email-server</module>
     </modules>
 
     <dependencies>
